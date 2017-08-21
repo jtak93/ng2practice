@@ -1,0 +1,13 @@
+<h1>New Post</h1>
+<label for="title">Title:</label>
+<input (keyup)="onKey($event)"><br>
+<label for="body">Body:</label>
+<input (keyup)="onBodyChange($event)"><br>
+<button (click)="onClick()" name="button">Submit Post</button>
+<h2>POSTS</h2>
+<ul>
+  <li *ngFor="let post of posts; let i=index" (click)="onPostClick($event, i)">
+    <p>{{post.id}} {{post.title}}</p>
+    <p *ngIf='post.isActive'>{{post.body}}</p>
+  </li>
+</ul>
